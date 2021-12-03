@@ -1,0 +1,31 @@
+<mat-card class="painel-container">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-sm-6">
+        <app-progresso [progresso]="progresso"></app-progresso>
+      </div>
+      <div class="col-sm-6">
+        <mat-card-actions align="end">
+          <app-tentativas [tentativas]="tentativas"></app-tentativas>
+        </mat-card-actions>
+      </div>
+    </div>
+  </div>
+
+  <div class="caixa">
+    <mat-card-title class="title">{{ instrucao }}</mat-card-title>
+    <mat-card-subtitle class="subtitle">{{ rodadaFrase.fraseEng }}</mat-card-subtitle>
+  </div>
+
+  <textarea
+    class="form-control textarea"
+    placeholder="  Digite aqui..."
+    rows="5"
+    (input)="atualizaResposta($event)"
+    [value]="resposta"
+  ></textarea>
+
+  <mat-card-actions class="button mb-2" align="end">
+    <button mat-raised-button color="warn" (click)="verificarResposta()">Verificar</button>
+  </mat-card-actions>
+</mat-card>
